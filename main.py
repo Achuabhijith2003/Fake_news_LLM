@@ -1,16 +1,16 @@
 from core.ai_agent import ai
-from core.train import webscrap
+from core.train import webscrap,get_links
 
 
 def main():
-    # promt=input("Enter the promt: ")
-    # ai.ai_agent(promt)
-    webscrap()
+    choices=input("Select the Options: \n1.Train the data \n")  
+    if choices=='1': 
+        url=input("Enter the URL include https:// :")
+        get_links(url)
+    else: 
+        print("Invalid")
     
-    pass
     
-
-
 
 
 if __name__ == "__main__":
