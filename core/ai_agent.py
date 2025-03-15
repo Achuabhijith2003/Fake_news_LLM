@@ -51,10 +51,16 @@ class AI:
         self.db =FAISS.load_local(self.db_dir,HuggingFaceBgeEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2"),allow_dangerous_deserialization=True)
         
         print("vector_db_loaded_successfully")
+        
+        
+    def Search_document(self):
+        retrive=self.db.as_retriever(search_type="similarity",search_kwarg={"k":6})
+        retrivered_doc=retrive.invoke(self.query)
+        print(f"Result from DB{retrivered_doc[0].page_content}")
 
 path_data = "D:/KMCT/miniproject/fakdec/Datasets"
 path_db = "DB/faiss"
-query = "what is that?"
+query = "A>Basic or Central Economic Problems: "
 
 obj = AI(path_data, path_db, query)
 obj.load_documents()
@@ -62,3 +68,4 @@ obj.Text_Splitter()
 obj.get_embeddings()
 obj.embedding_to_DB()
 obj.load_db()
+obj.Search_document()
