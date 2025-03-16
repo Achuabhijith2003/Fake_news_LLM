@@ -1,3 +1,4 @@
 bro
 DB\chroma.sqlite3
 Datasets
+*__pycache__/

@@ -5,3 +5,6 @@ urllib3
 langchain
 reportlab
 pypdf
+faiss-cpu
+langchain_google_genai 
+google-generativeai
